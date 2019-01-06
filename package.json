@@ -4,7 +4,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win portable"
+    "build": "electron-builder",
+    "build-port": "electron-builder --win portable"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,12 @@
     "node-static": "^0.7.11",
     "robotjs": "^0.5.1",
     "socket.io": "^2.2.0"
+  },
+  "build": {
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    }
   },
   "bugs": {
     "url": "https://github.com/Netha/AirMouse-app/issues"
