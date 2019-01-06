@@ -1,0 +1,230 @@
+@import url("../fonts/fonts.css");
+.draggable-area {
+  -webkit-app-region: drag;
+}
+
+.no-draggable-area {
+  -webkit-app-region: no-drag;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.active #qrcode, .active .p_barcode, .active .help {
+  opacity: 0;
+}
+
+.active .hide {
+  opacity: 1;
+}
+
+* {
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+}
+
+.p_barcode, .help {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.hide {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  opacity: 0;
+}
+
+.help {
+  position: absolute;
+  top: 20px;
+  font-size: 13px;
+  left: 24px;
+}
+
+.done {
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  width: 100%;
+}
+
+.done i {
+  font-size: 100px;
+}
+
+#window {
+  text-align: center;
+  background-color: #6067f0;
+  width: 480px;
+  height: 500px;
+  border-radius: 13px;
+  -webkit-box-shadow: 2px 4px 20px -3px #555555a8;
+          box-shadow: 2px 4px 20px -3px #555555a8;
+  padding-top: 55px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+#window h5 {
+  opacity: 0.5;
+  margin: 0;
+}
+
+#window hr {
+  width: 60%;
+  margin: auto;
+  height: 1px;
+  border: 0;
+  background-color: #fff;
+  opacity: 0.2;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#window .exit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+#window .exit > i {
+  opacity: 0.8;
+}
+
+#window button {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.7em 2em;
+  border-radius: 50px;
+  border: 0;
+  margin: 3px 5px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#window button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#qrcode {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 70px;
+  background: #fff;
+  width: 150px;
+  padding: 7px;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 4px 10px 0px #55555596;
+          box-shadow: 0 4px 10px 0px #55555596;
+}
+
+#qrcode > img {
+  opacity: 0.8;
+  width: 150px;
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #6067f0;
+  -webkit-animation: fadealert .7s 3.8s ease forwards;
+          animation: fadealert .7s 3.8s ease forwards;
+}
+
+@-webkit-keyframes fadealert {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+@keyframes fadealert {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 142px;
+  width: 100%;
+}
+
+.icon svg {
+  width: 107px;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  bottom: 203px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 290px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.loader .process {
+  height: 5px;
+  width: 0%;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-animation: timer 3.5s 1s ease-out forwards;
+          animation: timer 3.5s 1s ease-out forwards;
+}
+
+.msg {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 151px;
+}
+
+@-webkit-keyframes timer {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes timer {
+  to {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
