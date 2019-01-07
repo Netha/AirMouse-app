@@ -1,6 +1,9 @@
 require('./renderer.js')
 
 const remote = require('electron').remote;
+var os = require('os');
+const io = require('socket.io-client');
+
 
 document.getElementById('exit').addEventListener('click', ()=>{
     var window = remote.getCurrentWindow();
@@ -8,17 +11,20 @@ document.getElementById('exit').addEventListener('click', ()=>{
 })
 
 
-var os = require('os');
+
 var interfaces = os.networkInterfaces();
 for (var k in interfaces) {
-    if (k == 'Wi-Fi') {
+  console.log(k);
+  
+    if (k == 'Wi-Fi' || k == 'Ethernet') {
         for (var k2 in interfaces[k]) {
             var address = interfaces[k][k2];
 
             if (address.family === 'IPv4' && !address.internal) {
                 console.log(address.address);
-                new QRCode("qrcode").makeCode(`http://${address.address}:8080`);
                 document.getElementById('ip').innerText = `http://${address.address}:8080`;
+                 new QRCode("qrcode").makeCode(`http://${address.address}:8080`);
+
             }
         }
     }

@@ -1,10 +1,10 @@
 {
   "name": "airmouse",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder",
+    "build": "npm --no-git-tag-version version patch && electron-builder",
     "build-port": "electron-builder --win portable"
   },
   "repository": {
@@ -24,8 +24,10 @@
     "express": "^4.16.4",
     "ionicons-npm": "^2.0.1",
     "node-static": "^0.7.11",
+    "os": "^0.1.1",
     "robotjs": "^0.5.1",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
   },
   "build": {
     "win": {
