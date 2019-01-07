@@ -18,7 +18,7 @@ for (var k in interfaces) {
             if (address.family === 'IPv4' && !address.internal) {
                 console.log(address.address);
                 new QRCode("qrcode").makeCode(`http://${address.address}:8080`);
-                document.getElementById('ip').innerText = `http://'${address.address}:8080`;
+                document.getElementById('ip').innerText = `http://${address.address}:8080`;
             }
         }
     }
