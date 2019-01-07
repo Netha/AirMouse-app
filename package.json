@@ -1,11 +1,10 @@
 {
   "name": "airmouse",
-  "version": "1.0.4",
+  "version": "1.0.10",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "npm --no-git-tag-version version patch && electron-builder",
-    "build-port": "electron-builder --win portable"
+    "build": "npm --no-git-tag-version version patch && electron-builder"
   },
   "repository": {
     "type": "git",
@@ -16,7 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^3.0.7",
-    "electron-builder": "^20.38.4"
+    "electron-builder": "^20.38.4",
+    "electron-installer-dmg": "^2.0.0",
+    "electron-rebuild": "^1.8.2"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
@@ -30,9 +31,21 @@
     "socket.io-client": "^2.2.0"
   },
   "build": {
+    "productName": "Air Mouse",
     "win": {
-      "target": "nsis",
+      "target": [
+        "nsis",
+        "portable"
+      ],
       "icon": "icon.ico"
+    },
+    "nsis": {
+      "unicode": false,
+      "artifactName": "${productName} Installer - ${version}.${ext}"
+    },
+    "portable": {
+      "unicode": false,
+      "artifactName": "${productName} Portable - ${version}.${ext}"
     }
   },
   "bugs": {

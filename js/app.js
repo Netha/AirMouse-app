@@ -14,11 +14,11 @@ document.getElementById('exit').addEventListener('click', ()=>{
 
 var interfaces = os.networkInterfaces();
 for (var k in interfaces) {
-  console.log(k);
-  
-    if (k == 'Wi-Fi' || k == 'Ethernet') {
+    if (k.toLowerCase().indexOf('wi-fi') > -1 || k.toLowerCase().indexOf('ethernet') > -1) {
         for (var k2 in interfaces[k]) {
             var address = interfaces[k][k2];
+            
+            console.log(`interfaces: ${address.family} - ${address.internal}`);
 
             if (address.family === 'IPv4' && !address.internal) {
                 console.log(address.address);
